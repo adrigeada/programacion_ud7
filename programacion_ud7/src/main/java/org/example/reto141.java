@@ -6,60 +6,66 @@ import java.util.Stack;
 
 public class reto141 {
 
-    static void main(String[] args) {
-        while (esBalanceada()){
+    static Scanner teclado = new Scanner(System.in);
 
+    public static void main(String[] args) {
+        teclado = new java.util.Scanner(System.in);
+        while (casoDePrueba()) {
         }
-    }
+    } // main
 
+    public static boolean casoDePrueba() {
+        if (!teclado.hasNext())
+            return false;
+        else {
 
-    public static boolean esBalanceada(){
-        Scanner teclado = new Scanner(System.in);
-        Character[] caracteresAbiertos = {'(','[','{'};
-        Character[] caracteresCerrados = {')',']','}'};
-            if (!teclado.hasNext()){
-                return false;
-            }else {
-                String expresion = teclado.nextLine();
-                Stack<Character> pila = new Stack<>();
+            Character[] caracteresAbiertos = {'(','[','{'};
+            Character[] caracteresCerrados = {')',']','}'};
 
-                for (int i = 0; i < expresion.length(); i++) {
-                    int indiceAbierto = 4;
-                    int indiceCerrado = 5;
+            String expresion = teclado.nextLine();
+            Stack<Character> pila = new Stack<>();
 
-                    if (Arrays.asList(caracteresAbiertos).contains(expresion.charAt(i))){
-                        pila.push(expresion.charAt(i));
-                    }
+            for (int i = 0; i < expresion.length(); i++) {
+                int indiceAbierto = 4;
+                int indiceCerrado = 5;
 
-                    if (Arrays.asList(caracteresCerrados).contains(expresion.charAt(i))){
+                if (Arrays.asList(caracteresAbiertos).contains(expresion.charAt(i))){
+                    pila.push(expresion.charAt(i));
+                }
 
-                        if (pila.isEmpty()){
+                if (Arrays.asList(caracteresCerrados).contains(expresion.charAt(i))){
+
+                    if (pila.isEmpty()){
+                        System.out.println("NO");
+                        return true;
+                    }else {
+                        indiceAbierto = Arrays.asList(caracteresAbiertos).indexOf(pila.peek());
+                        indiceCerrado = Arrays.asList(caracteresCerrados).indexOf(expresion.charAt(i));
+
+                        if (indiceAbierto == indiceCerrado){
+                            pila.pop();
+                        }else {
                             System.out.println("NO");
                             return true;
-                        }else {
-                            indiceAbierto = Arrays.asList(caracteresAbiertos).indexOf(pila.peek());
-                            indiceCerrado = Arrays.asList(caracteresCerrados).indexOf(expresion.charAt(i));
-
-                            if (indiceAbierto == indiceCerrado){
-                                pila.pop();
-                            }
-
                         }
 
                     }
 
-
                 }
 
-                if (pila.isEmpty()){
-                    System.out.println("YES");
-                }else {
-                    System.out.println("NO");
-                }
-                return true;
+
             }
 
+            if (pila.isEmpty()){
+                System.out.println("YES");
+            }else {
+                System.out.println("NO");
+            }
+
+            return true;
+        }
+    } // casoDePrueba
 
 
-    }
-}
+
+} // class solution
