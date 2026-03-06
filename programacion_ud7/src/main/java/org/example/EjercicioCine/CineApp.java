@@ -24,6 +24,7 @@ public class CineApp {
             } else if (cola.poll().getEdad() >= 11) {
                 recaudacion += 2.5;
             }else {
+                cola.poll();
                 recaudacion += 1;
             }
 
