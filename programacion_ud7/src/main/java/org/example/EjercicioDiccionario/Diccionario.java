@@ -1,8 +1,6 @@
 package org.example.EjercicioDiccionario;
 
-import java.util.HashMap;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Diccionario {
     public static HashMap<String,String> mapaDiccionario = new HashMap<>();
@@ -46,7 +44,7 @@ public class Diccionario {
 
     public static String palabraAleatoria(){
 
-        String[] listaPalabras = (String[]) mapaDiccionario.keySet().toArray();
+        Set<String> listaPalabras = mapaDiccionario.keySet();
 
 
         return listaPalabras[aleatorio.nextInt(200)];
