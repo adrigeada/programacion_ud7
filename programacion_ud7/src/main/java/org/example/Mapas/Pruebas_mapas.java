@@ -1,13 +1,17 @@
 package org.example.Mapas;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Pruebas_mapas {
     static void main() {
 
         HashMap<String,String> concejales = new HashMap<>();
                 //clave , valor
+//        TreeMap<>
+//        LinkedHashMap
 
         concejales.put("Enrique Pastor","Juventud y tiempo libre");
         concejales.put("Mónica Gil","Familia y fiestas");
