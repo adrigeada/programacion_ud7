@@ -9,13 +9,14 @@ public class pruebas_sets {
         String esquiroles[] = {"Joaquín","Christian","Christian","Carlos","Carlos","Ángel","Kevin","Eric","DavidG"};
 
 
-        HashSet<String> normal = new HashSet<>(Arrays.asList(esquiroles));
-        LinkedHashSet<String> respeta_add = new LinkedHashSet<>(Arrays.asList(esquiroles));
-        TreeSet<String> ordenada = new TreeSet<>(Arrays.asList(esquiroles));
+        HashSet<String> normal = new HashSet<>(Arrays.asList(esquiroles));//en order aleatorio, no se puede repetir
+        LinkedHashSet<String> respeta_add = new LinkedHashSet<>(Arrays.asList(esquiroles));//respeta el orden en que se han añadido
+        TreeSet<String> ordenada = new TreeSet<>(Arrays.asList(esquiroles));//se ordena por orden ascii
 
         System.out.println(normal);
         System.out.println(respeta_add);
         System.out.println(ordenada);
+
 
 
 
@@ -27,6 +28,8 @@ public class pruebas_sets {
         LinkedHashSet<String> fraseSinRepetidos = new LinkedHashSet<>(Arrays.asList(fraseVector));
 
         System.out.println(fraseSinRepetidos);
+
+
 
         LinkedHashSet<String> paginasWeb = new LinkedHashSet<>();
         String pag = "";

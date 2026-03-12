@@ -10,21 +10,40 @@ public class Diccionario {
     static void main() {
         Precarga.main();
 
-        while (true){
-            String palabra = palabraAleatoria();
-            System.out.println(palabra+": "+primeraLetraTraduccion(palabra));
-            System.out.print("Indique la respuesta:");
+        int contador = 0;
+        int aciertos = 0;
+        int fallos = 0;
 
+
+        while (true){
+
+            String palabra = palabraAleatoria();
+            String palabraCorrecta = traduce(palabra);
+            System.out.println("\n"+palabra+": "+primeraLetraTraduccion(palabra)+"...");
+            System.out.print("Indique la respuesta:");
             String respuesta = teclado.nextLine();
+
             if (respuesta.equals("fin")){
                 break;
             }
 
+            contador++;
 
-
+            if (respuesta.equals(palabraCorrecta.toLowerCase())){
+                System.out.println("CORRECTO");
+                aciertos++;
+            }else {
+                System.out.println("NO. La respuesta correcta es "+palabraCorrecta);
+                fallos++;
+            }
 
         }
 
+        System.out.println("\nFIN DEL PROGRAMA");
+        System.out.println("Total preguntas: "+contador);
+        System.out.println("Total aciertos: "+aciertos);
+        System.out.println("Total errores: "+fallos);
+        System.out.println("Aciertos: "+(aciertos*100)/contador + "%");
 
     }
 
@@ -45,9 +64,9 @@ public class Diccionario {
     public static String palabraAleatoria(){
 
         Set<String> listaPalabras = mapaDiccionario.keySet();
+        String[] listaVector = listaPalabras.toArray(new String[0]);
 
-
-        return listaPalabras[aleatorio.nextInt(200)];
+        return listaVector[aleatorio.nextInt(listaVector.length)];
     }
 
     public static char primeraLetraTraduccion(String palabra){

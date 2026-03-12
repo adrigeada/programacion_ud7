@@ -25,15 +25,15 @@ public class Colecciones {
         cola.offer("Yatra");
         cola.offer("Shakira");
 
-        System.out.println(cola.poll());
+        System.out.println(cola.poll());//saca el primero de la lista
 
-        System.out.println(cola.peek());
+        System.out.println(cola.peek());//enseña al primero de la lista
 
         cola.offerFirst("Pirlo");
         System.out.println(cola.peek());
         System.out.println(cola.pollLast());
 
-        Queue<String> cola2 = new ArrayBlockingQueue<>(2);
+        Queue<String> cola2 = new ArrayBlockingQueue<>(2);//no te deja meter mas en la cola que su capacidad
 
         cola2.offer("Juan");
         cola2.offer("Jorge");
