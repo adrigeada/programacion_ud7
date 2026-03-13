@@ -28,6 +28,6 @@ public class IteradoresObjetos {
         }
 
         System.out.println(listaPresidente);
-        
+
     }
 }
