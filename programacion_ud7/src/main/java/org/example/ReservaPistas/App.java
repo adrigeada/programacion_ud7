@@ -11,7 +11,7 @@ public class App {
     static HashMap<Usuario,ArrayList<Reserva>> mapaReservas = new HashMap<>();
 
     static void main() {
-
+//PRUEBAS PARA RELLENAR EL MAPA
 //        Usuario u1 = new Usuario("Adri");
 //        Usuario u2 = new Usuario("Ruben");
 //        Usuario u3 = new Usuario("Carlos");
@@ -35,7 +35,7 @@ public class App {
 //
 //        mapaReservas.put(u1,listaTonta);
 
-
+        //Bucle para crear reservas y añadirlas al mapa
         while (true){
 
             try {
@@ -43,13 +43,14 @@ public class App {
             }catch (MismaHoraExcepcion e){
                 System.out.println("No se puede hacer dos reservas a la misma hora");
             }
+
             System.out.println("Quieres hacer más reservas? S/N");
             if (teclado.nextLine().equalsIgnoreCase("n")){
                 break;
             }
         }
 
-
+        //Para usar el método de busqueda de reservas por usuario
         try {
 
             for (Reserva res : busquedaReserva()){
@@ -111,7 +112,7 @@ public class App {
 
         String nombre = teclado.nextLine();
 
-        //Si en el mapa hay un usuario con el nombre escrito, se devuelve su lista de reservas.
+        //Si en el mapa hay un usuario con el nombre escrito, se devuelve su lista de reservas, la recorro en el main para enseñarla con un foreach
         //Si no, se lanza una excepción
         for (Map.Entry<Usuario,ArrayList<Reserva>> mapita : mapaReservas.entrySet()){
 
