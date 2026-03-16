@@ -175,6 +175,10 @@ public class App {
         //Dos reservas son iguales si tienen la misma fecha. (equals/hashcode)
         for (Map.Entry<Usuario,ArrayList<Reserva>> mapita : mapaReservas.entrySet()){
 
+//            if (mapita.getValue().contains(reserva)){
+//                throw new MismaHoraExcepcion();
+//            }
+
             for (Reserva reservaTest : mapita.getValue()){
 
                 if (reservaTest.equals(reserva)){
