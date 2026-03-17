@@ -14,6 +14,7 @@ public class Reserva {
         this.usuario = usuario;
         this.pista = pista;
         this.fecha = fecha;
+//        fecha = LocalDateTime.now();
     }
 
     public Usuario getUsuario() {
@@ -53,11 +54,11 @@ public class Reserva {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Reserva reserva = (Reserva) o;
-        return Objects.equals(fecha, reserva.fecha);
+        return Objects.equals(pista, reserva.pista) && Objects.equals(fecha, reserva.fecha);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(fecha);
+        return Objects.hash(pista, fecha);
     }
 }

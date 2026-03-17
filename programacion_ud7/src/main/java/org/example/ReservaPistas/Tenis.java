@@ -3,8 +3,9 @@ package org.example.ReservaPistas;
 public class Tenis extends Pista {
     private String superficie;
 
-    public Tenis(String tipo, int id) {
+    public Tenis(String tipo, int id,String superficie) {
         super(tipo, id);
+        this.superficie = superficie;
     }
 
     public String getSuperficie() {

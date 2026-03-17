@@ -6,7 +6,7 @@ import java.util.*;
 public class App {
 
     static Scanner teclado = new Scanner(System.in);
-    static ArrayList<Reserva> listaReservas = new ArrayList<>();
+    static HashSet<Reserva> listaReservas = new HashSet<>();
 
     static HashMap<Usuario,ArrayList<Reserva>> mapaReservas = new HashMap<>();
 
@@ -142,14 +142,19 @@ public class App {
             String pista = teclado.nextLine().toLowerCase();
 
             if (pista.equals("tenis")){
-                System.out.println("tierra batida, cemento o hierba?");
+                System.out.println("Indoor, exterior");
                 String tipoPista = teclado.nextLine();
-                pistaObjeto = new Tenis(tipoPista,1);
+                System.out.println("tierra batida, cemento o hierba?");
+                String superficie = teclado.nextLine();
+                System.out.println("");
+                pistaObjeto = new Tenis(tipoPista,1,superficie);
                 break;
             } else if (pista.equals("padel")) {
-                System.out.println("Paredes de cristal o cemento?");
+                System.out.println("Indoor o exterior?");
                 String tipoPista = teclado.nextLine();
-                pistaObjeto = new Padel(tipoPista,2);
+                System.out.println("Paredes de cristal o cemento?");
+                String pared = teclado.nextLine();
+                pistaObjeto = new Padel(tipoPista,2,pared);
                 break;
             }else {
                 System.out.println("Escribe bien");

@@ -3,8 +3,9 @@ package org.example.ReservaPistas;
 public class Padel extends Pista{
     private String paredes;
 
-    public Padel(String tipo, int id) {
+    public Padel(String tipo, int id,String paredes) {
         super(tipo, id);
+        this.paredes = paredes;
     }
 
     public String getParedes() {
