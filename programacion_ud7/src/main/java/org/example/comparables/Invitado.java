@@ -7,7 +7,7 @@ import java.time.LocalTime;
 
 @Getter
 @ToString
-public class Invitado { //implements Comparable<Invitado>
+public class Invitado implements Comparable<Invitado>{ //implements Comparable<Invitado>
 
     private LocalTime hora;
     private Integer edad;
@@ -19,24 +19,24 @@ public class Invitado { //implements Comparable<Invitado>
         this.nombre = nombre;
     }
 
-//    @Override
-//    public int compareTo(Invitado o) {
-//        //compare to devuelve numero positivo si hora es mas grande que o.getHora. Numero negativo al reves
-//
-//
-//        int comparar = edad.compareTo(o.getEdad());
-//
-//        if (comparar != 0){
-//            return comparar;
-//        }
-//
-//        comparar = nombre.compareTo(o.getNombre()); //TIENE QUE SER DATO NO PRIMITIVO
-//
-//        if (comparar != 0){
-//            return comparar;
-//        }
-//
-//
-//        return hora.compareTo(o.getHora());
-//    }
+    @Override
+    public int compareTo(Invitado o) {
+        //compare to devuelve numero positivo si hora es mas grande que o.getHora. Numero negativo al reves
+
+
+        int comparar = edad.compareTo(o.getEdad());
+
+        if (comparar != 0){
+            return comparar;
+        }
+
+        comparar = nombre.compareTo(o.getNombre()); //TIENE QUE SER DATO NO PRIMITIVO
+
+        if (comparar != 0){
+            return comparar;
+        }
+
+
+        return hora.compareTo(o.getHora());
+    }
 }
