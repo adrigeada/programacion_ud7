@@ -47,7 +47,9 @@ public class Diccionario {
 
     }
 
-
+    public static void nuevoPar(String espanyol, String ingles){
+        mapaDiccionario.put(espanyol,ingles);
+    }
 
     public static String traduce(String palabra){
 
@@ -62,7 +64,6 @@ public class Diccionario {
     }
 
     public static String palabraAleatoria(){
-
         Set<String> listaPalabras = mapaDiccionario.keySet();
         String[] listaVector = listaPalabras.toArray(new String[0]);
 
