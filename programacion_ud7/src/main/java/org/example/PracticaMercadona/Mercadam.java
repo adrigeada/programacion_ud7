@@ -23,7 +23,7 @@ public class Mercadam {
             pass+=caracteres.charAt(aleatorio.nextInt(caracteres.length()));
         }
 
-        Cliente cliente = new Cliente(usuario,pass,null,false);
+        Cliente cliente = new Cliente(usuario,pass);
         listaClientes.add(cliente);
     }
 

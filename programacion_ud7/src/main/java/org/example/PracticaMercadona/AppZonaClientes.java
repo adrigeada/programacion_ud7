@@ -128,6 +128,33 @@ public class AppZonaClientes {
 
     public static void mostrarOpciones(){
 
+        System.out.println("\n========================================");
+        System.out.println("¿Qué desea hacer?");
+        System.out.println("[1]. Aplicar promos.");
+        System.out.println("[2]. Mostrar resumen ordenado por uds.");
+        System.out.println("[3]. Terminar pedido.");
+        String opcion = teclado.nextLine();
+
+        switch (opcion){
+
+            case "1":
+                break;
+            case "2":
+                break;
+            case "3":
+                imprimirDespedida();
+                break;
+            default:
+
+
+
+        }
+
+    }
+
+    public static void imprimirDespedida(){
+        System.out.println("\n=== GRACIAS POR SU PEDIDO ===");
+        System.out.println("Lo recibirá en unos días en la dirección "+cliente.getDireccion());
     }
 
 }

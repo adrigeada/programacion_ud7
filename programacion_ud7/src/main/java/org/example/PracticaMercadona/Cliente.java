@@ -10,17 +10,12 @@ public class Cliente {
     private Pedido pedido;
     private boolean promociones;
 
-    public Cliente(String usuario, String contrasenya, Pedido pedido, boolean promociones) {
+    public Cliente(String usuario, String contrasenya) {
         this.usuario = usuario;
         this.contrasenya = contrasenya;
         direccion = "Calle falsa, 123";
-        this.pedido = pedido;
-        this.promociones = promociones;
-    }
-
-    public Cliente(String usuario,String contrasenya){
-        this.usuario = usuario;
-        this.contrasenya = contrasenya;
+        pedido = null;
+        promociones = false;
     }
 
     public void crearPedido(){
