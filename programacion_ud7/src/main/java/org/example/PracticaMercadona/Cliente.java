@@ -93,17 +93,16 @@ public class Cliente {
                 '}';
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Cliente cliente = (Cliente) o;
-        return promociones == cliente.promociones && Objects.equals(usuario, cliente.usuario) && Objects.equals(contrasenya, cliente.contrasenya) && Objects.equals(direccion, cliente.direccion) && Objects.equals(pedido, cliente.pedido);
+        return Objects.equals(usuario, cliente.usuario) && Objects.equals(contrasenya, cliente.contrasenya);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(usuario, contrasenya, direccion, pedido, promociones);
+        return Objects.hash(usuario, contrasenya);
     }
-
-
 }

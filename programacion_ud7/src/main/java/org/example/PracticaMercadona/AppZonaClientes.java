@@ -1,8 +1,6 @@
 package org.example.PracticaMercadona;
 
-import java.util.Random;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class AppZonaClientes {
    static Random aleatorio = new Random();
@@ -98,6 +96,7 @@ public class AppZonaClientes {
                 continue;
             }
 
+            //si no hago el continue, intenta insertar producto sin que producto exista.ERROR
             cliente.insertarProducto(producto);
 
             System.out.println("¿Quieres añadir más productos (S/N)?");
@@ -113,6 +112,21 @@ public class AppZonaClientes {
     }
 
     public static void imprimirResumen(){
+        System.out.println("\n=== RESUMEN DE TU CARRITO DE LA COMPRA ===");
+        System.out.println("Productos:");
+
+        HashMap<Producto,Integer> mapaPedido = cliente.getPedido().getPedidoMapa();
+
+        for (Map.Entry<Producto,Integer> mapita : mapaPedido.entrySet()){
+            System.out.println(mapita.getValue()+" "+mapita.getKey()+" "+mapita.getKey().getPrecio());
+        }
+
+        System.out.println("IMPORTE TOTAL: "+cliente.getPedido().getImporteTotal()+"€");
+
+        mostrarOpciones();
+    }
+
+    public static void mostrarOpciones(){
 
     }
 

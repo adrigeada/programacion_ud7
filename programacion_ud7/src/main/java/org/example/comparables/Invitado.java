@@ -5,8 +5,6 @@ import lombok.ToString;
 
 import java.time.LocalTime;
 
-@Getter
-@ToString
 public class Invitado implements Comparable<Invitado>{ //implements Comparable<Invitado>
 
     private LocalTime hora;
@@ -17,6 +15,39 @@ public class Invitado implements Comparable<Invitado>{ //implements Comparable<I
         this.hora = LocalTime.now();
         this.edad = edad;
         this.nombre = nombre;
+    }
+
+    public LocalTime getHora() {
+        return hora;
+    }
+
+    public void setHora(LocalTime hora) {
+        this.hora = hora;
+    }
+
+    public Integer getEdad() {
+        return edad;
+    }
+
+    public void setEdad(Integer edad) {
+        this.edad = edad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Invitado{" +
+                "hora=" + hora +
+                ", edad=" + edad +
+                ", nombre='" + nombre + '\'' +
+                '}';
     }
 
     @Override
