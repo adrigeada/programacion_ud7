@@ -3,20 +3,17 @@ package org.example.PracticaMercadona;
 import java.util.HashMap;
 
 public class Pedido {
-    private HashMap<Producto,Integer> pedido;
+    private HashMap<Producto,Integer> pedidoMapa;
     private double importeTotal;
 
-    public Pedido(HashMap<Producto, Integer> pedido, double importeTotal) {
-        this.pedido = pedido;
-        this.importeTotal = importeTotal;
-    }
-
-    public Pedido(){
-
+    public Pedido() {
+        pedidoMapa = new HashMap<>();
+        importeTotal = 0;
     }
 
     public void actualizarImporteTotal(double importe){
-
+        importeTotal+=importe;
+        System.out.println("Importe total del pedido: "+importeTotal+"€");
     }
 
     public void aplicarPromo3x2(){
@@ -35,18 +32,18 @@ public class Pedido {
         this.importeTotal = importeTotal;
     }
 
-    public HashMap<Producto, Integer> getPedido() {
-        return pedido;
+    public HashMap<Producto, Integer> getPedidoMapa() {
+        return pedidoMapa;
     }
 
-    public void setPedido(HashMap<Producto, Integer> pedido) {
-        this.pedido = pedido;
+    public void setPedidoMapa(HashMap<Producto, Integer> pedidoMapa) {
+        this.pedidoMapa = pedidoMapa;
     }
 
     @Override
     public String toString() {
         return "Pedido{" +
-                "pedido=" + pedido +
+                "pedido=" + pedidoMapa +
                 ", importeTotal=" + importeTotal +
                 '}';
     }

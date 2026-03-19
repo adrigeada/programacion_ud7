@@ -1,5 +1,6 @@
 package org.example.PracticaMercadona;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 public class Cliente {
@@ -23,10 +24,21 @@ public class Cliente {
     }
 
     public void crearPedido(){
-
+        pedido = new Pedido();
     }
 
     public void insertarProducto(Producto producto){
+        HashMap<Producto,Integer> pedidoMapa = pedido.getPedidoMapa();
+
+        if (pedidoMapa.containsKey(producto)){
+            pedidoMapa.put(producto,pedidoMapa.get(producto)+1);
+        }else {
+            pedidoMapa.put(producto,1);
+        }
+
+        System.out.println("Has añadido "+producto+" con un precio de "+producto.getPrecio()+"€");
+
+        pedido.actualizarImporteTotal(producto.getPrecio());
 
     }
 
@@ -92,4 +104,6 @@ public class Cliente {
     public int hashCode() {
         return Objects.hash(usuario, contrasenya, direccion, pedido, promociones);
     }
+
+
 }
