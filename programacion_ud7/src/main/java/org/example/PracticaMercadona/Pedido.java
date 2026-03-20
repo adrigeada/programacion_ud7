@@ -1,8 +1,11 @@
 package org.example.PracticaMercadona;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Pedido {
+    static final double DESCUENTO =0.90;
+
     private HashMap<Producto,Integer> pedidoMapa;
     private double importeTotal;
 
@@ -18,9 +21,22 @@ public class Pedido {
 
     public void aplicarPromo3x2(){
 
+        for (Map.Entry<Producto,Integer> mapita : pedidoMapa.entrySet()){
+            if (mapita.getValue() % 3 == 0 ){
+                importeTotal = importeTotal-mapita.getKey().getPrecio()*(mapita.getValue())/3;
+            } else if (mapita.getValue() > 3) {
+                int resta = mapita.getValue()/3;
+                double restaTotal = mapita.getKey().getPrecio()*resta;
+
+                importeTotal-=restaTotal;
+
+            }
+        }
+
     }
 
     public void aplicarPromo10(){
+        importeTotal = importeTotal*DESCUENTO;
 
     }
 

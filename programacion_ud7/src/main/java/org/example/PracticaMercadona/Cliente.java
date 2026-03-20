@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Objects;
 
 public class Cliente {
+    static final String CALLE = "Calle falsa, 123";
+
     private String usuario;
     private String contrasenya;
     private String direccion;
@@ -13,7 +15,7 @@ public class Cliente {
     public Cliente(String usuario, String contrasenya) {
         this.usuario = usuario;
         this.contrasenya = contrasenya;
-        direccion = "Calle falsa, 123";
+        direccion = CALLE;
         pedido = null;
         promociones = false;
     }

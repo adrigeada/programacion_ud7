@@ -16,7 +16,7 @@ class DiccionarioTest {
     }
 
     @Test
-    void nuevoPar() {
+    void nuevoParTest() {
         String espanyol = "Hola";
         String ingles = "Hello";
         Diccionario.nuevoPar(espanyol,ingles);
@@ -28,21 +28,25 @@ class DiccionarioTest {
     }
 
     @Test
-    void traduce() {
-        assertTrue(Diccionario.traduce(palabra1).equals(palabra2));
-        assertTrue(Diccionario.traduce("palabraNoExistente")== null);
+    void traducePalabraExistente() {
+        assertEquals(Diccionario.traduce(palabra1), palabra2);
     }
 
     @Test
-    void palabraAleatoria() {
+    void traducePalabraNoExistente(){
+        assertNull(Diccionario.traduce("palabraNoExistente"));
+    }
+
+    @Test
+    void palabraAleatoriaTest() {
         String palabra = Diccionario.palabraAleatoria();
 
         assertTrue(mapa.containsKey(palabra));
     }
 
     @Test
-    void primeraLetraTraduccion() {
+    void primeraLetraTraduccionTest() {
 
-        assertTrue(Diccionario.primeraLetraTraduccion(palabra1)==palabra2.charAt(0));
+        assertEquals(Diccionario.primeraLetraTraduccion(palabra1), palabra2.charAt(0));
     }
 }

@@ -138,6 +138,7 @@ public class AppZonaClientes {
         switch (opcion){
 
             case "1":
+                aplicarPromo();
                 break;
             case "2":
                 break;
@@ -155,6 +156,18 @@ public class AppZonaClientes {
     public static void imprimirDespedida(){
         System.out.println("\n=== GRACIAS POR SU PEDIDO ===");
         System.out.println("Lo recibirá en unos días en la dirección "+cliente.getDireccion());
+    }
+
+    public static void aplicarPromo(){
+        if (cliente.isPromociones()){
+            System.out.println("Ya se han aplicado promociones");
+        }else {
+            cliente.getPedido().aplicarPromo3x2();
+            cliente.getPedido().aplicarPromo10();
+        }
+        cliente.setPromociones(true);
+        imprimirResumen();
+
     }
 
 }
