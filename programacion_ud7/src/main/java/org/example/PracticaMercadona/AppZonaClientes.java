@@ -11,7 +11,7 @@ public class AppZonaClientes {
 
         Mercadam mercadam = new Mercadam();
         //Se genera una cantidad aleatoria de clientes
-        int cantidadUsuarios = aleatorio.nextInt(9)+1;
+        int cantidadUsuarios = aleatorio.nextInt(10)+1;
         for (int i = 0; i < cantidadUsuarios; i++) {
             mercadam.generarClientes();
         }
