@@ -26,9 +26,10 @@ public class Pedido {
                 importeTotal = importeTotal-mapita.getKey().getPrecio()*(mapita.getValue())/3;
             } else if (mapita.getValue() > 3) {
                 int resta = mapita.getValue()/3;
+                System.out.println(resta);
                 double restaTotal = mapita.getKey().getPrecio()*resta;
 
-                importeTotal-=restaTotal;
+                importeTotal = importeTotal-restaTotal;
 
             }
         }

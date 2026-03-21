@@ -8,7 +8,7 @@ public class Mercadam {
     private Set<Cliente> listaClientes; //hacer comparable a cliente
 
     public Mercadam(){
-        listaClientes = new HashSet<>();
+        listaClientes = new TreeSet<>();
     }
 
     public void generarClientes(){
@@ -42,4 +42,6 @@ public class Mercadam {
                 "clientes=" + listaClientes +
                 '}';
     }
+
+
 }

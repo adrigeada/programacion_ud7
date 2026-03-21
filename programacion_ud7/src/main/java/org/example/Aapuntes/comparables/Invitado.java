@@ -1,7 +1,4 @@
-package org.example.comparables;
-
-import lombok.Getter;
-import lombok.ToString;
+package org.example.Aapuntes.comparables;
 
 import java.time.LocalTime;
 
@@ -55,13 +52,13 @@ public class Invitado implements Comparable<Invitado>{ //implements Comparable<I
         //compare to devuelve numero positivo si hora es mas grande que o.getHora. Numero negativo al reves
 
 
-        int comparar = edad.compareTo(o.getEdad());
+        int comparar = edad.compareTo(o.getEdad());//TIENE QUE SER DATO NO PRIMITIVO
 
         if (comparar != 0){
             return comparar;
         }
 
-        comparar = nombre.compareTo(o.getNombre()); //TIENE QUE SER DATO NO PRIMITIVO
+        comparar = nombre.compareTo(o.getNombre());
 
         if (comparar != 0){
             return comparar;

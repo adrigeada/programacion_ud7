@@ -1,4 +1,4 @@
-package org.example.comparables;
+package org.example.Aapuntes.comparables;
 
 import java.util.*;
 

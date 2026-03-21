@@ -3,7 +3,7 @@ package org.example.PracticaMercadona;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class Cliente {
+public class Cliente implements Comparable<Cliente>{
     static final String CALLE = "Calle falsa, 123";
 
     private String usuario;
@@ -101,5 +101,18 @@ public class Cliente {
     @Override
     public int hashCode() {
         return Objects.hash(usuario, contrasenya);
+    }
+
+
+    @Override
+    public int compareTo(Cliente o) {
+
+        int comparar = usuario.compareTo(o.getUsuario());
+
+        if (comparar != 0){
+            return comparar;
+        }
+
+        return contrasenya.compareTo(o.getContrasenya());
     }
 }

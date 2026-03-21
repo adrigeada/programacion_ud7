@@ -20,7 +20,7 @@ public class Iterador {
 
         Iterator<String> it = lista.iterator(); //para cuando quieres borrar algo especifico en una lista,pila,cola
 
-//        lista.add("Onix"); si añades o remove, después de crear el iterador, ConcurrentModificationException
+//        lista.add("Onix"); si añades o remove, después de crear el iterador, ConcurrentModificationException. Se pueden borrar y añadir al iterador no a la lista.
 
         while (it.hasNext()){
 

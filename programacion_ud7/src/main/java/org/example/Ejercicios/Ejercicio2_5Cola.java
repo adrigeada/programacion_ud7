@@ -21,7 +21,7 @@ public class Ejercicio2_5Cola {
         System.out.println("Estado inicial de la cola de impresión : "+colaTareas);
         while (!colaTareas.isEmpty()){
 
-            System.out.println("Procesando "+colaTareas.poll());
+            System.out.println("Procesando "+colaTareas.poll()+". Quedan "+colaTareas.size()+" trabajos por procesar.");
             if (colaTareas.isEmpty()){
                 System.out.println("No hay mas trabajos");
                 break;

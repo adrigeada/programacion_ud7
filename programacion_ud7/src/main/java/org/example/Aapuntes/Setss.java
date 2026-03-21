@@ -1,0 +1,55 @@
+package org.example.Aapuntes;
+
+import java.util.*;
+
+public class Setss {
+    static void main() {
+
+        //add,remove,contains,size,isEmpty
+
+        Scanner teclado = new Scanner(System.in);
+
+        String esquiroles[] = {"Joaquín","Christian","Christian","Carlos","Carlos","Ángel","Kevin","Eric","DavidG"};
+
+
+        HashSet<String> normal = new HashSet<>(Arrays.asList(esquiroles));//en order aleatorio, no se puede repetir
+        LinkedHashSet<String> respeta_add = new LinkedHashSet<>(Arrays.asList(esquiroles));//respeta el orden en que se han añadido
+        TreeSet<String> ordenada = new TreeSet<>(Arrays.asList(esquiroles));//se ordena por orden ascii
+
+        System.out.println(normal);
+        System.out.println(respeta_add);
+        System.out.println(ordenada);
+
+
+
+
+        System.out.print("Escribe una frase: ");
+        String frase = teclado.nextLine().toLowerCase();
+
+        String[] fraseVector = frase.split(" ");
+
+        LinkedHashSet<String> fraseSinRepetidos = new LinkedHashSet<>(Arrays.asList(fraseVector));
+
+        System.out.println(fraseSinRepetidos);
+
+
+
+        LinkedHashSet<String> paginasWeb = new LinkedHashSet<>();
+        String pag = "";
+        do {
+            System.out.print("Escribe una URL visitada (o salir para terminar): ");
+            pag= teclado.nextLine();
+
+            if (!pag.equals("salir")){
+                paginasWeb.add(pag);
+            }
+
+        }while(!pag.equals("salir"));
+
+        System.out.println("\nHistorial de navegación: ");
+        for (String paginas : paginasWeb){
+            System.out.println("- "+paginas);
+        }
+
+    }
+}
