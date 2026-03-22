@@ -7,6 +7,10 @@ public class AppZonaClientes {
    static Scanner teclado = new Scanner(System.in);
     static Cliente cliente;
 
+    /**
+     * Se crea un objeto mercadam que se usa para generar clientes y meterlos en la lista dentro de Mercadam. Después se recibe la lista inmodificable. Esta lista es la que se pasa
+     * como parámetro al método autentication.
+     */
     static void main() {
 
         Mercadam mercadam = new Mercadam();
@@ -24,6 +28,12 @@ public class AppZonaClientes {
 
     }
 
+    /**
+     * Recibe una lista de clientes. Se pide usuario y contraseña para acceder. Estos datos se buscan en la lista, si no coinciden con los datos de ningun cliente se vuelven a pedir y se resta un intento.
+     * Tras 3 intentos fallidos el programa acaba con un return. Si coinciden, se usan para crear el cliente estático que hay en esta clase. Es el que vamos a usar para el resto del programa.
+     * Se llama a iniciarCompra().
+     * @param listaClientes
+     */
     public static void autentication(Set<Cliente> listaClientes){
         int intentos = 3;
         String usuario ="";
@@ -63,6 +73,9 @@ public class AppZonaClientes {
 
     }
 
+    /**
+     * Se crea un pedido usando el cliente estático y se llama a imprimirProductos().
+     */
     public static void iniciarCompra(){
 
         System.out.println("Creando un nuevo pedido...");
@@ -72,6 +85,12 @@ public class AppZonaClientes {
 
     }
 
+    /**
+     * Se imprimen por pantalla los productos que hay en el Enum Producto.
+     * Se pide elegir un producto para añadir al pedido. Si no coincide con los Enums válidos se vuelve a pedir que se elija un producto válido.
+     * Si el producto es válido, se inserta el producto al pedido con insertarProducto().
+     * Finalmente se pregunta si queremos añadir mas productos al pedido. S para repetir, N para salir. Si sales, se llama a imprimirResumen()
+     */
     public static void imprimirProductos(){
         Producto producto = null;
         boolean repetir;
@@ -111,6 +130,9 @@ public class AppZonaClientes {
         imprimirResumen();
     }
 
+    /**
+     * Usando un for each al mapa del pedido se enseñan los productos y las cantidades que hay en el pedido. Se llama a mostrarOpciones().
+     */
     public static void imprimirResumen(){
         System.out.println("\n=== RESUMEN DE TU CARRITO DE LA COMPRA ===");
         System.out.println("Productos:");
@@ -126,6 +148,9 @@ public class AppZonaClientes {
         mostrarOpciones();
     }
 
+    /**
+     * Se imprimen las posibles opciones que hay al final del pedido. Con la respuesta se hace un switch-case
+     */
     public static void mostrarOpciones(){
 
         System.out.println("\n========================================");
@@ -154,11 +179,17 @@ public class AppZonaClientes {
 
     }
 
+    /**
+     * Acaba el programa con una despedida.
+     */
     public static void imprimirDespedida(){
         System.out.println("\n=== GRACIAS POR SU PEDIDO ===");
         System.out.println("Lo recibirá en unos días en la dirección "+cliente.getDireccion());
     }
 
+    /**
+     * Se comprueba si el atributo booleano de cliente, promociones es true o false. Si es true no se hace nada. Si es false se aplican ambos métodos de promoción,.
+     */
     public static void aplicarPromo(){
         if (cliente.isPromociones()){
             System.out.println("Ya se han aplicado promociones");
@@ -171,6 +202,10 @@ public class AppZonaClientes {
 
     }
 
+    /**
+     * Se crea una lista Map.Entry a partir del mapa del pedido. Esta lista se ordena usando Map.Entry.comparingByValue(Comparator.reverseOrder()) para ordenar por value.
+     * Luego uso esta lista ordenada para volver a imprimir el mapa.
+     */
     public static void ordenarPedido(){
         System.out.println("\n=== RESUMEN DE TU CARRITO DE LA COMPRA ===");
         System.out.println("Productos ordenados por uds:");
@@ -191,6 +226,11 @@ public class AppZonaClientes {
 
     }
 
+    /**
+     * Se crea un Iterator tipo Map.Entry a partir del mapa del pedido. Se pide que producto queremos borrar.
+     * Recorremos el iterator con un hasNext(), guardamos un prodUd con next(). Si la key de este prodUd es igual al producto que hemos escrito entramos al if.
+     * Si hay mas de una unidad de el producto elegido, actualizamos el valor a -1. Si hay uno, lo eliminamos con remove().
+     */
     public static void eliminarProductos(){
 
         System.out.println("=== ELIMINAR PRODUCTOS ===");

@@ -20,10 +20,17 @@ public class Cliente implements Comparable<Cliente>{
         promociones = false;
     }
 
+    /**
+     * Pedido empieza en null, este método inicializa el pedido.
+     */
     public void crearPedido(){
         pedido = new Pedido();
     }
 
+    /**
+     * Guardo el mapa del pedido. En este mapa compruebo si el pedido recibido por parametro existe en el mapa. Si no existe lo meto al mapa, si existe se le hace un +1 al valor del producto
+     * @param producto
+     */
     public void insertarProducto(Producto producto){
         HashMap<Producto,Integer> pedidoMapa = pedido.getPedidoMapa();
 
@@ -104,6 +111,11 @@ public class Cliente implements Comparable<Cliente>{
     }
 
 
+    /**
+     * Los clientes se ordenan por orden alfabético del usuario. Si tienen el mismo usuario se ordenan alfabeticamente por la constraseña
+     * @param o
+     * @return
+     */
     @Override
     public int compareTo(Cliente o) {
 
