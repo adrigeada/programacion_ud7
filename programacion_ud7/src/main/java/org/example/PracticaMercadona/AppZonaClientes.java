@@ -46,7 +46,7 @@ public class AppZonaClientes {
 
             for (Cliente cliente : listaClientes){
 
-                if (!cliente.getUsuario().equalsIgnoreCase(usuario) || !cliente.getContrasenya().equalsIgnoreCase(contrasenya)){
+                if (!cliente.getUsuario().equals(usuario) || !cliente.getContrasenya().equals(contrasenya)){
                     intentos--;
                     System.out.println("Credenciales no válidas. Intentos: "+intentos);
                     continue fuera;
@@ -132,7 +132,8 @@ public class AppZonaClientes {
         System.out.println("¿Qué desea hacer?");
         System.out.println("[1]. Aplicar promos.");
         System.out.println("[2]. Mostrar resumen ordenado por uds.");
-        System.out.println("[3]. Terminar pedido.");
+        System.out.println("[3]. Eliminar productos del pedido");
+        System.out.println("[4]. Terminar pedido.");
         String opcion = teclado.nextLine();
 
         switch (opcion){
@@ -141,13 +142,13 @@ public class AppZonaClientes {
                 aplicarPromo();
                 break;
             case "2":
+                ordenarPedido();
                 break;
             case "3":
-                imprimirDespedida();
+                eliminarProductos();
                 break;
             default:
-
-
+                imprimirDespedida();
 
         }
 
@@ -166,6 +167,59 @@ public class AppZonaClientes {
             cliente.getPedido().aplicarPromo10();
         }
         cliente.setPromociones(true);
+        imprimirResumen();
+
+    }
+
+    public static void ordenarPedido(){
+        System.out.println("\n=== RESUMEN DE TU CARRITO DE LA COMPRA ===");
+        System.out.println("Productos ordenados por uds:");
+
+        HashMap<Producto,Integer> mapaPedido = cliente.getPedido().getPedidoMapa();
+
+        List<Map.Entry<Producto,Integer>> listaMapa = new ArrayList<>(mapaPedido.entrySet());
+
+        listaMapa.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+
+        for (Map.Entry<Producto,Integer> mapita : listaMapa){
+            System.out.println(mapita.getValue()+" "+mapita.getKey()+" "+mapita.getKey().getPrecio()+"€");
+        }
+
+        System.out.println("\nIMPORTE TOTAL: "+cliente.getPedido().getImporteTotal()+"€");
+
+        mostrarOpciones();
+
+    }
+
+    public static void eliminarProductos(){
+
+        System.out.println("=== ELIMINAR PRODUCTOS ===");
+        System.out.println("¿Qué producto quieres eliminar?");
+
+        HashMap<Producto,Integer> mapaPedido = cliente.getPedido().getPedidoMapa();
+        for (Map.Entry<Producto,Integer> mapita : mapaPedido.entrySet()){
+            System.out.println(mapita.getValue()+" "+mapita.getKey()+" "+mapita.getKey().getPrecio());
+        }
+        Iterator<Map.Entry<Producto,Integer>> itmapa = mapaPedido.entrySet().iterator();
+
+        Producto producto = Producto.valueOf(teclado.nextLine().toUpperCase());
+
+        while (itmapa.hasNext()){
+            Map.Entry<Producto,Integer> prodUd = itmapa.next();
+
+            if (prodUd.getKey().equals(producto)){
+
+                if (prodUd.getValue() > 1){
+                    mapaPedido.put(producto, mapaPedido.get(producto)-1);
+//                    prodUd.setValue(prodUd.getValue()-1);
+                }else {
+                    itmapa.remove();
+                }
+                break;
+
+            }
+        }
+
         imprimirResumen();
 
     }

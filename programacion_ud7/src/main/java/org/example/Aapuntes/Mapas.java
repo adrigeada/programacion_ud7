@@ -14,7 +14,7 @@ public class Mapas {
         //METODOS
 
         concejales.put("clave","valor");
-        concejales.get("clave");//devuelve valor
+        concejales.get("clave");//das clave, devuelve valor
         concejales.remove("clave");//borrar por clave, tambien se puede usar clave y valor
         concejales.containsKey("clave");
         concejales.containsValue("valor");
