@@ -3,7 +3,7 @@ package org.example.preExamen;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class ChatBot {
+public class Chatbot {
     static void main() {
         Scanner teclado = new Scanner(System.in);
         String pregunta = "";
