@@ -56,18 +56,18 @@ public class AppZonaClientes {
 
             for (Cliente cliente : listaClientes){
 
-                if (!cliente.getUsuario().equals(usuario) || !cliente.getContrasenya().equals(contrasenya)){
-                    intentos--;
-                    System.out.println("Credenciales no válidas. Intentos: "+intentos);
-                    continue fuera;
-                }else {
+                if (cliente.getUsuario().equals(usuario) || cliente.getContrasenya().equals(contrasenya)){
                     System.out.println("Bienvenido, "+usuario);
                     break fuera;
                 }
 
             }
 
+            intentos--;
+            System.out.println("Credenciales no válidas. Intentos: "+intentos);
+
         }
+
         cliente = new Cliente(usuario,contrasenya);
         iniciarCompra();
 

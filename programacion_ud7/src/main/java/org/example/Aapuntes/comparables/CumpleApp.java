@@ -28,6 +28,8 @@ public class CumpleApp {
         mapaInvitados.put(new Invitado(12,"David"),"500€");
         mapaInvitados.put(new Invitado(12,"Joaquin"),"Charla con Milei");
 
+
+
         List<Map.Entry<Invitado,String>> listaMapa = new ArrayList<>(mapaInvitados.entrySet()); //creamos una lista arraylist con el entrySet del mapa
 
         listaMapa.sort(Map.Entry.comparingByValue()); //para ordenar por valor
