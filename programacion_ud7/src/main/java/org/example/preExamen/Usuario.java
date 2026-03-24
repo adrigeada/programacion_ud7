@@ -80,7 +80,8 @@ public class Usuario implements Acciones{
 
             }
         }
-
+        this.nombre_usuario = usuario;
+        this.contrasenya = contrasenya;
         System.out.println("Hola "+usuario+". Elige un evento para iniciar la compra:");
 
         return true;
@@ -97,6 +98,7 @@ public class Usuario implements Acciones{
     public void verCarrito(){
 
     }
+
 
     @Override
     public boolean equals(Object o) {

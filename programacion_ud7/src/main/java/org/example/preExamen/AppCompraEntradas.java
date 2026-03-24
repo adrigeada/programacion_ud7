@@ -16,6 +16,7 @@ public class AppCompraEntradas {
 
         comprador.autenticarse(TicketMutxa.getUsuariosRegistrados());
 
+
         TicketMutxa.verEventos();
 
         Evento evento = null;
