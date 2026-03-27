@@ -1,9 +1,16 @@
 package org.example.Lambdas;
 
+import org.example.Lambdas.clasesLambdas.Persona;
+import org.example.Lambdas.clasesLambdas.Producto;
+import org.example.Lambdas.interfacesLambdas.Ejecutor;
+import org.example.Lambdas.interfacesLambdas.FiltroProducto;
+import org.example.Lambdas.interfacesLambdas.VerificadorObjeto;
+import org.example.Lambdas.interfacesLambdas.VerificadorVoto;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class App {
+public class AppLambdas {
 
 
     static void main(String[] args) {
@@ -26,7 +33,7 @@ public class App {
 
         //2
 
-        VerificadorVoto voto = (nombre,edad) -> {
+        VerificadorVoto voto = (nombre, edad) -> {
             System.out.println("Probando "+nombre+" con "+edad+" años...");
             if (edad >= 18){
                 return true;
@@ -61,6 +68,42 @@ public class App {
         for (String nombre : personasQuePuedenVotar){
             System.out.println(nombre);
         }
+
+
+        //3
+
+        List<Producto> listaProductos = new ArrayList<>();
+
+        listaProductos.add(new Producto("Smartphone",200,"Electronica"));
+        listaProductos.add(new Producto("Laptop",500,"Electronica"));
+        listaProductos.add(new Producto("Tablet",300,"Electronica"));
+        listaProductos.add(new Producto("Silla",50,"Muebles"));
+        listaProductos.add(new Producto("Mesa",150,"Muebles"));
+        listaProductos.add(new Producto("Lámpara",20,"Muebles"));
+
+        List<Producto> productosFiltrados = new ArrayList<>();
+
+        FiltroProducto lambdita = (producto) -> {
+            if (producto.getCategoria().equals("Electronica") && producto.getPrecio() > 100){
+                return true;
+            }else{
+                return false;
+            }
+        };
+
+        for (Producto producto : listaProductos){
+
+            if (lambdita.filtrar(producto)){
+                productosFiltrados.add(producto);
+            }
+
+        }
+
+        System.out.println("\nProductos filtrados (Electrónica y precio > 100)");
+        for (Producto producto : productosFiltrados){
+            System.out.println("Nombre: "+producto.getNombre()+", Precio: "+producto.getPrecio());
+        }
+
 
     }//main
 }

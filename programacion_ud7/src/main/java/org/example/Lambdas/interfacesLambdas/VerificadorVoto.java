@@ -1,4 +1,4 @@
-package org.example.Lambdas;
+package org.example.Lambdas.interfacesLambdas;
 
 @FunctionalInterface
 public interface VerificadorVoto {
